@@ -4,7 +4,7 @@ import sqlite3
 import pandas as pd
 
 def parse_xml():
-    tree = ET.parse('../ACTUAL_TOTAL_LOAD_202406010000-202406020000.xml')
+    tree = ET.parse('ACTUAL_TOTAL_LOAD_202501010000-202601010000.xml')
     root = tree.getroot()
     ns = {'ns': 'urn:iec62325.351:tc57wg16:451-6:generationloaddocument:3:0'}
     conn = sqlite3.connect('../load_data.db')
@@ -68,6 +68,6 @@ def export_sqlite_to_csv(db_path, output_csv, aggregate_to_hourly=False):
 
 if __name__ == "__main__":
     export_sqlite_to_csv('../load_data.db', 'energy_consumption.csv', aggregate_to_hourly=True)
-    print("Данные успешно сохранены в load_data.db")
+    #print("Данные успешно сохранены в load_data.db")
     #parse_xml()
     #select_all()
